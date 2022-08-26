@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
 #current-time {
   margin: 0;
   padding: 20px 0px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   transition: 500ms ease-in-out;
 }
 
@@ -84,4 +84,9 @@ body::-webkit-scrollbar {
 
 .remove-alarm:hover {
   color: rgb(255, 0, 0);
+}
+
+#no-alarms {
+  margin: 10px 0px;
+  padding: 0;
 }
