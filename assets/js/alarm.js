@@ -14,7 +14,16 @@
     times: []
   };
 
+  const removeAlarm = function (event) {
+    let button = event.target;
+    let id = button.getAttribute('data-id');
+    alarm.times.splice(id, 1);
+    localStorage.setItem('alarm', JSON.stringify(alarm));
+    fillAlarmList();
+  };
+
   const fillAlarmList = function () {
+    alarmList.innerHTML = '';
     if (alarm.times.length === 0) {
       const noAlarms = document.createElement('h1');
       noAlarms.id = 'no-alarms';
@@ -22,7 +31,7 @@
       clockContainer.appendChild(noAlarms);
       return;
     }
-    alarmList.innerHTML = '';
+
     let noAlarm = document.getElementById('no-alarms');
     if (noAlarm != null) {
       noAlarm.remove();
@@ -42,6 +51,8 @@
       <i class="fa-solid fa-eraser remove-alarm" title="remove alarm" data-id="${index}"></i>`;
 
       alarmList.appendChild(listItem);
+      let removeButton = listItem.querySelector('.remove-alarm');
+      removeButton.addEventListener('click', removeAlarm);
     });
   };
 

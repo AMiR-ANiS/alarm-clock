@@ -37,6 +37,7 @@ body::-webkit-scrollbar {
 
 #clock-circle:hover {
   border: 2px dashed rgb(0, 255, 242);
+  box-shadow: 0px 5px 80px rgb(0, 255, 242);
 }
 
 #current-time {
@@ -56,6 +57,7 @@ body::-webkit-scrollbar {
   border-radius: 50%;
   font-size: 2rem;
   padding: 10px;
+  transition: 500ms ease-in-out;
 }
 
 #add-alarm:hover {
@@ -75,15 +77,16 @@ body::-webkit-scrollbar {
 
 #alarms {
   padding: 0;
-  margin: 10px 0px;
+  margin-top: 40px;
 }
 
 .alarm-time {
-  padding: 10px;
+  padding: 20px;
 }
 
 .remove-alarm:hover {
   color: rgb(255, 0, 0);
+  cursor: pointer;
 }
 
 #no-alarms {
