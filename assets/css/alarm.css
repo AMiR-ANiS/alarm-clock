@@ -1,3 +1,4 @@
+/* global styling */
 body {
   margin: 0;
   padding: 0;
@@ -11,18 +12,21 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* styling header */
 #header > h2 {
   margin: 0;
   padding: 20px 0px;
   text-align: center;
 }
 
+/* styling clock container */
 #clock-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* styling clock circle display */
 #clock-circle {
   width: 400px;
   height: 400px;
@@ -32,11 +36,11 @@ body::-webkit-scrollbar {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  animation: pulse 500ms ease-in-out infinite alternate;
 }
 
 #clock-circle:hover {
   border: 2px dotted rgb(0, 255, 242);
-  animation: pulse 500ms ease-in-out infinite alternate;
 }
 
 #clock-circle:hover > #current-time {
@@ -44,6 +48,7 @@ body::-webkit-scrollbar {
   transform: scale(1.2) translate(0, 30px) rotate(360deg);
 }
 
+/* defining keyframes for pulse animation */
 @keyframes pulse {
   0% {
     box-shadow: none;
@@ -53,6 +58,7 @@ body::-webkit-scrollbar {
   }
 }
 
+/* styling the time display */
 #current-time {
   margin: 0;
   padding: 20px 0px;
@@ -60,6 +66,7 @@ body::-webkit-scrollbar {
   transition: 500ms ease-in-out;
 }
 
+/* styling add alarm button */
 #add-alarm {
   border: 2px solid white;
   border-radius: 50%;
@@ -73,6 +80,7 @@ body::-webkit-scrollbar {
   transform: scale(1.2);
 }
 
+/* styling the set new alarm */
 #new-alarm {
   margin-top: 20px;
   text-align: center;
@@ -83,6 +91,7 @@ body::-webkit-scrollbar {
   margin-left: 10px;
 }
 
+/* styling the alarm list */
 #alarms {
   padding: 0;
   margin-top: 40px;

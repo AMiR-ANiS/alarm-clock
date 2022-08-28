@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./assets/css/alarm.css" />
+
+    <!-- setting the favicon -->
     <link rel="icon" type="image/x-icon" href="./assets/favicon/alarm.ico" />
+
+    <!-- including font awesome kit -->
     <script
       src="https://kit.fontawesome.com/e83ab0ff70.js"
       crossorigin="anonymous"
@@ -18,40 +22,43 @@
         <h2>Alarm Clock</h2>
       </header>
       <div id="clock-container">
+        <!-- display the clock circle -->
         <div id="clock-circle">
           <h1 id="current-time"></h1>
           <i id="add-alarm" class="fa-solid fa-plus" title="add new alarm"></i>
         </div>
+
+        <!-- new alarm input box -->
         <div id="new-alarm">
           <form id="new-alarm-form">
             <fieldset>
               <legend>SET NEW ALARM</legend>
               <select id="hr" name="hours" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
               <label for="hr">HH : </label>
               <select id="min" name="minutes" required>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
@@ -105,16 +112,16 @@
               </select>
               <label for="min">MM : </label>
               <select id="sec" name="seconds" required>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
@@ -178,6 +185,8 @@
             </fieldset>
           </form>
         </div>
+
+        <!-- Alarms list -->
         <ol id="alarms"></ol>
       </div>
     </div>

@@ -1,3 +1,7 @@
 # Alarm clock
 
-Alarm clock created using HTML, CSS and JS
+Alarm clock built using HTML, CSS and JS
+
+## Features
+
+User can view current time, set alarms and remove alarms.
