@@ -26,18 +26,31 @@ body::-webkit-scrollbar {
 #clock-circle {
   width: 400px;
   height: 400px;
-  border: 2px solid white;
+  border: 2px dotted white;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  transition: 500ms ease-in-out;
 }
 
 #clock-circle:hover {
-  border: 2px dashed rgb(0, 255, 242);
-  box-shadow: 0px 5px 80px rgb(0, 255, 242);
+  border: 2px dotted rgb(0, 255, 242);
+  animation: pulse 500ms ease-in-out infinite alternate;
+}
+
+#clock-circle:hover > #current-time {
+  color: rgb(0, 255, 242);
+  transform: scale(1.2) translate(0, 30px) rotate(360deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: 0px 5px 60px rgb(0, 255, 242);
+  }
 }
 
 #current-time {
@@ -45,11 +58,6 @@ body::-webkit-scrollbar {
   padding: 20px 0px;
   font-family: 'Times New Roman', Times, serif;
   transition: 500ms ease-in-out;
-}
-
-#current-time:hover {
-  color: rgb(0, 255, 242);
-  transform: scale(1.2) translate(0, 10px) rotate(360deg);
 }
 
 #add-alarm {

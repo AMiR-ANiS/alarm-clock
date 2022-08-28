@@ -13,6 +13,7 @@
   let alarm = {
     times: []
   };
+  let timerId = null;
 
   const removeAlarm = function (event) {
     let button = event.target;
@@ -89,6 +90,44 @@
     }
   };
 
+  const ringNextAlarm = function () {
+    if (alarm.times.length != 0) {
+      let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      let timeInSeconds = hours * 3600 + minutes * 60 + seconds;
+      let nextAlarmTime = alarm.times.find(function (value, index) {
+        return value >= timeInSeconds;
+      });
+
+      if (nextAlarmTime == undefined) {
+        nextAlarmTime = alarm.times[0];
+        let alarmTimeOffset = 24 * 3600 - timeInSeconds + nextAlarmTime;
+        timerId = setTimeout(ringAlarm, alarmTimeOffset * 1000, nextAlarmTime);
+      } else {
+        let alarmTimeOffset = nextAlarmTime - timeInSeconds;
+        timerId = setTimeout(ringAlarm, alarmTimeOffset * 1000, nextAlarmTime);
+      }
+    }
+  };
+
+  const ringAlarm = function (alarmTime) {
+    if (alarm.times.indexOf(alarmTime) != -1) {
+      alert('Alarm ringing!');
+    }
+    ringNextAlarm();
+  };
+
+  const showCurrentTime = function () {
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const timeIn12HFormat = convertTo12Hour(hours, minutes, seconds);
+    currentTimeContainer.innerHTML = timeIn12HFormat;
+  };
+
   const updateCurrentTime = function () {
     const date = new Date();
     const hours = date.getHours();
@@ -136,9 +175,12 @@
       alarm.times.push(totalSeconds);
       alarm.times.sort(compareFunction);
       localStorage.setItem('alarm', JSON.stringify(alarm));
+
+      if (timerId != null) {
+        clearInterval(timerId);
+      }
+      ringNextAlarm();
       fillAlarmList();
-    } else {
-      alert('alarm with given time already exists!');
     }
 
     setAlarmContainer.style.display = 'none';
@@ -148,5 +190,7 @@
   cancelSetAlarmButton.addEventListener('click', hideSetAlarm);
   newAlarmForm.addEventListener('submit', handleSetAlarm);
 
+  showCurrentTime();
   fillAlarmList();
+  ringNextAlarm();
 }
